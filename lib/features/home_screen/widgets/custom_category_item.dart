@@ -17,7 +17,7 @@ class CustomCategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(end: 12.w),
+      padding: EdgeInsetsDirectional.only(start: 24.w),
       child: InkWell(
         borderRadius: BorderRadius.circular(56.r),
         onTap: ontap,

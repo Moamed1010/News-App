@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/styles/app_text_styles.dart';
 import 'package:news_app/core/widgets/spacing_widget.dart';
 import 'package:news_app/features/home_screen/widgets/custom_category_item.dart';
+import 'package:news_app/features/home_screen/widgets/top_headline_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,17 +14,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // 1. قائمة الأقسام (keys for translation)
   final List<String> categories = [
     "travel",
     "technology",
     "business",
     "entertainment",
-    "health", // أضفت واحد زيادة للتجربة
-    "science",
   ];
-
-  // 2. متغير لحفظ رقم العنصر المختار (نبدأ بـ 0 ليكون الأول مختاراً)
   int selectedIndex = 0;
 
   @override
@@ -34,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: const Color(0xffE9EEFA),
           toolbarHeight: 100.h,
           title: Padding(
-            padding: EdgeInsetsDirectional.only(start: 28.w, end: 20.w),
+            padding: EdgeInsetsDirectional.only(start: 22.w, end: 20.w),
             child: Text('explore'.tr(), style: AppTextStyles.black32),
           ),
           actions: [
@@ -46,21 +42,19 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Column(
           children: [
-            const HeightSpace(16),
+            const HeightSpace(18),
             Padding(
               padding: EdgeInsetsDirectional.only(start: 32.w),
               child: SizedBox(
                 height: 40.h,
-
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
                   itemCount: categories.length,
                   itemBuilder: (context, index) {
                     return CustomCategoryItem(
                       title: categories[index],
-
                       isSelected: selectedIndex == index,
-
                       ontap: () {
                         setState(() {
                           selectedIndex = index;
@@ -69,6 +63,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                 ),
+              ),
+            ),
+            const HeightSpace(24),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: Column(
+                children: [
+                  TopHeadlineItem(
+                    imageUrl:
+                        "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                    title: "Apple Unveils Revolutionary AI Features ",
+                    publishedAt: "May 1,2026",
+                    authorName: "Moamed",
+                  ),
+                ],
               ),
             ),
           ],
