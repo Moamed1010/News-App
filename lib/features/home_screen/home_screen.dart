@@ -6,6 +6,8 @@ import 'package:news_app/core/widgets/spacing_widget.dart';
 import 'package:news_app/features/home_screen/widgets/custom_category_item.dart';
 import 'package:news_app/features/home_screen/widgets/top_headline_item.dart';
 
+import 'widgets/custom_articale_Card.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -43,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             const HeightSpace(18),
+            // قسم التصنيفات (Fixed Height)
             Padding(
               padding: EdgeInsetsDirectional.only(start: 32.w),
               child: SizedBox(
@@ -66,18 +69,110 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const HeightSpace(24),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Column(
-                children: [
-                  TopHeadlineItem(
-                    imageUrl:
-                        "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
-                    title: "Apple Unveils Revolutionary AI Features ",
-                    publishedAt: "May 1,2026",
-                    authorName: "Moamed",
-                  ),
-                ],
+
+            // التعديل هنا: أضفنا Expanded ليملأ باقي الشاشة
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Column(
+                  children: [
+                    TopHeadlineItem(
+                      imageUrl:
+                          "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                      title: "Apple Unveils Revolutionary AI Features ",
+                      publishedAt: "May 1,2026",
+                      authorName: "Moamed",
+                    ),
+                    const HeightSpace(24),
+                    // القائمة تأخذ المساحة المتبقية داخل الـ Expanded الأب
+                    Expanded(
+                      child: ListView(
+                        // يفضل إضافة physics هنا أيضاً لتجربة مستخدم أفضل
+                        physics: const BouncingScrollPhysics(),
+                        children: const [
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          CustomArticaleCard(
+                            imageUrl:
+                                "https://imgs.search.brave.com/eK6x2NfP-nNqdwWp7Up91pA8MIeWUGpzMwPjaSZrJJw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L2NubmhlYWRsaW5l/cy13ZWJkdGMtMXgx/LmpwZz9jPTE2eDkm/cT13XzEyODAsY19m/aWxs",
+                            title: "Apple Unveils Revolutionary AI Features ",
+                            publishedAt: "May 1,2026",
+                            authorName: "Moamed",
+                          ),
+                          // ... باقي العناصر
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
