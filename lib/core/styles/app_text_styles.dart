@@ -11,6 +11,12 @@ class AppTextStyles {
     color: AppColor.primaryTextColor,
     fontFamily: GoogleFonts.inter().fontFamily,
   );
+  static TextStyle black24 = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColor.primaryTextColor,
+    fontFamily: GoogleFonts.inter().fontFamily,
+  );
   static TextStyle gray12 = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,

@@ -1,9 +1,11 @@
 {
     "explore": "Explore",
-    "travel": "Travel",
-    "technology": "Technology",
-    "business": "Business",
-    "entertainment": "Entertainment",
+    "Travel": "Travel",
+    "Technology": "Technology",
+    "Business": "Business",
+    "Entertainment": "Entertainment",
     "cancel": "Cancel",
-    "search_result": "Search Results"
+    "search_result": "Search Results",
+    "No Result": "No Result",
+    "search": "Search"
 }

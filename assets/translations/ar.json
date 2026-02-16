@@ -1,9 +1,11 @@
 {
     "explore": "استكشاف",
-    "travel": "السفر",
-    "technology": "التقنية",
-    "business": "الأعمال",
-    "entertainment": "الترفيه",
+    "Travel": "سفر",
+    "Technology": "تكنولوجيا",
+    "Business": "أعمال",
+    "Entertainment": "ترفيه",
     "cancel": "إلغاء",
-    "search_result": "نتائج البحث"
+    "search_result": "نتائج البحث",
+    "No Result": "لا توجد نتائج",
+    "search": "البحث"
 }

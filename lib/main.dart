@@ -1,17 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/core/constants/constants.dart';
+import 'core/networking/dio_helper.dart';
 import 'core/routing/router_generator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  DioHelper.initDio();
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translations',
-      fallbackLocale: const Locale('en'),
-      startLocale: const Locale('en'),
+      fallbackLocale: const Locale('ar'),
+      startLocale:  Locale(Constants.language),
       child: const MyApp(),
     ),
   );
