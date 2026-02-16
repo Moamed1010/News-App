@@ -1,13 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/models/articles_model.dart';
 import 'package:news_app/features/home_screen/home_screen.dart';
-
 import '../../features/home_screen/article_details_screen.dart';
 import '../../features/search_result_screen/search_result_screen.dart';
-import '../models/news_model.dart';
 import 'app_router.dart';
 
 class RouterGenerator {

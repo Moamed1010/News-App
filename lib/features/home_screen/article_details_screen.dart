@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/core/models/articles_model.dart';
 import 'package:news_app/core/routing/app_router.dart';
-import 'package:news_app/core/styles/app_color.dart';
 import 'package:news_app/core/styles/app_text_styles.dart';
 
 class ArticleDetailsScreen extends StatelessWidget {
@@ -19,13 +18,13 @@ class ArticleDetailsScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            // استخدمنا Column لتقسيم الشاشة: صورة فوق ومحتوى تحت
+    
             Column(
               children: [
-                // 1. الصورة (تأخذ مساحة ثابتة ولن يغطيها أحد)
+             
                 SizedBox(
                   width: double.infinity,
-                  height: 300.h, // ارتفاع الصورة الثابت
+                  height: 300.h, 
                   child: CachedNetworkImage(
                     imageUrl: article.urlToImage ?? "",
                     fit: BoxFit.cover,
@@ -36,11 +35,11 @@ class ArticleDetailsScreen extends StatelessWidget {
                   ),
                 ),
 
-                // 2. المحتوى الأبيض (يأخذ باقي الشاشة والسكرول بداخله فقط)
+               
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    // رفعنا الكونتينر بالسالب (-20) عشان يعمل تداخل بسيط وشيك مع الصورة
+                  
                     transform: Matrix4.translationValues(0.0, -20.0, 0.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
