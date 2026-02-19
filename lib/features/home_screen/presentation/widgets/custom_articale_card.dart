@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:news_app/core/models/articles_model.dart';
 import 'package:news_app/core/styles/app_text_styles.dart';
 
-import '../../../core/routing/app_router.dart';
+import '../../../../core/routing/app_router.dart';
 
 class CustomArticleCard extends StatelessWidget {
   final Articles article;

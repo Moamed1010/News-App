@@ -4,7 +4,7 @@ import 'package:news_app/core/networking/dio_helper.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/models/news_model.dart';
 
-class HomeScreenServices {
+class HomeRepo {
   getTopHeadlinesArticles() async {
     try {
       final response = await DioHelper.getRequest(

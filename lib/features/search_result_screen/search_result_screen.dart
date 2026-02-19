@@ -1,15 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/routing/app_router.dart';
 import 'package:news_app/core/styles/app_text_styles.dart';
-import 'package:news_app/features/search_result_screen/services/search_result_services.dart';
-
+import 'package:news_app/features/home_screen/presentation/widgets/custom_articale_card.dart';
+import 'package:news_app/features/search_result_screen/cubit/search_result_cubit.dart';
 import '../../core/models/news_model.dart';
 import '../../core/styles/app_color.dart';
 import '../../core/widgets/spacing_widget.dart';
-import '../home_screen/widgets/custom_articale_Card.dart';
 
 class SearchResultScreen extends StatelessWidget {
   final String query;
@@ -47,52 +47,39 @@ class SearchResultScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           title: Text("search_result".tr(), style: AppTextStyles.black24),
         ),
-        body: FutureBuilder(
-          future: SearchResultServices().searchItemByName(query),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
+        body: BlocBuilder<SearchResultCubit, SearchResultState>(
+          builder: (context, state) {
+            if (state is LoadingSearchResult) {
               return Center(
                 child: CircularProgressIndicator(
                   color: AppColor.primaryTextColor,
                 ),
               );
-            }
-            if (snapshot.hasError) {
-              return Center(
-                child: Text(
-                  snapshot.error.toString(),
-                  style: AppTextStyles.black18,
-                ),
-              );
-            }
-            if (snapshot.hasData) {
-              NewsModel searchResult = snapshot.data! as NewsModel;
-
-              if (searchResult.totalResults == 0) {
-                return Center(
-                  child: Text("No Result".tr(), style: AppTextStyles.black18),
-                );
+            } else if (state is ErrorSearchResult) {
+              return Center(child: Text(state.error));
+            } else if (state is SuccessSearchResult) {
+              NewsModel searchResult = state.model;
+              if (searchResult.articles == null ||
+                  searchResult.articles!.isEmpty) {
+                return Center(child: Text("No Result".tr()));
               }
+
               return Column(
                 children: [
                   const HeightSpace(22),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Column(
-                        children: [
-                          const HeightSpace(24),
-                          Expanded(
-                            child: ListView.builder(
-                              itemCount: searchResult.articles!.length,
-                              itemBuilder: (context, index) {
-                                return CustomArticleCard(
-                                  article: searchResult.articles![index],
-                                );
-                              },
+                      child: ListView.builder(
+                        itemCount: searchResult.articles!.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(bottom: 10.h),
+                            child: CustomArticleCard(
+                              article: searchResult.articles![index],
                             ),
-                          ),
-                        ],
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -100,9 +87,7 @@ class SearchResultScreen extends StatelessWidget {
               );
             }
 
-            return Center(
-              child: Text("No data available", style: AppTextStyles.black18),
-            );
+            return const SizedBox.shrink();
           },
         ),
       ),
