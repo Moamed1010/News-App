@@ -1,3 +1,5 @@
+// ignore_for_file: strict_top_level_inference
+
 import 'package:dio/dio.dart';
 import 'api_endpoints.dart';
 
@@ -20,7 +22,7 @@ class DioHelper {
       Response response = await dio!.get(endpoint, queryParameters: query);
       return response;
     } catch (e) {
-      print(e.toString() as num);
+      rethrow;
     }
   }
 }

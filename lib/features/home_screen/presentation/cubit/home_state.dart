@@ -1,6 +1,6 @@
-part of 'home_cubit.dart';
 
-@immutable
+import '../../domain/entity/news_entity.dart';
+
 abstract class HomeState {}
 
 class HomeInitialState extends HomeState {}
@@ -8,7 +8,8 @@ class HomeInitialState extends HomeState {}
 class LoadingTopHeadlineState extends HomeState {}
 
 class SuccessTopHeadLineState extends HomeState {
-  final NewsModel topHeadline;
+
+  final NewsEntity topHeadline;
 
   SuccessTopHeadLineState(this.topHeadline);
 }

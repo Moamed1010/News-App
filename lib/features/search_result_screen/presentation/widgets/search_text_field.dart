@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/widgets/custom_textt_field.dart';
 
-import '../../../core/routing/app_router.dart';
+import '../../../../core/routing/app_router.dart';
 
 class SearchTextField extends StatefulWidget {
   const SearchTextField({super.key});

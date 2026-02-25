@@ -3,13 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/models/articles_model.dart';
 import 'package:news_app/core/styles/app_text_styles.dart';
+import 'package:news_app/features/home_screen/domain/entity/article_entity.dart';
 
 import '../../../../core/routing/app_router.dart';
 
 class CustomArticleCard extends StatelessWidget {
-  final Articles article;
+  final ArticleEntity article;
 
   const CustomArticleCard({super.key, required this.article});
 

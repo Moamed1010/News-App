@@ -8,11 +8,12 @@ class SearchResultInitial extends SearchResultState {}
 class LoadingSearchResult extends SearchResultState {}
 
 class SuccessSearchResult extends SearchResultState {
-  final NewsModel model;
-  SuccessSearchResult(this.model);
+
+  final NewsEntity newsEntity;
+  SuccessSearchResult(this.newsEntity);
 }
 
-class ErrorSearchResult extends SearchResultState { // تم تصحيح Erorr إلى Error
+class ErrorSearchResult extends SearchResultState {
   final String error;
   ErrorSearchResult(this.error);
 }

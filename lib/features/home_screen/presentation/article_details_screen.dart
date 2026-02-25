@@ -1,110 +1,50 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
-import 'package:news_app/core/models/articles_model.dart';
-import 'package:news_app/core/routing/app_router.dart';
-import 'package:news_app/core/styles/app_text_styles.dart';
+import 'package:news_app/features/home_screen/domain/entity/article_entity.dart';
+
 
 class ArticleDetailsScreen extends StatelessWidget {
-  final Articles article;
+  final ArticleEntity article;
+
   const ArticleDetailsScreen({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Stack(
+      appBar: AppBar(title: Text(article.source?.name ?? 'News Details')),
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-    
-            Column(
-              children: [
-             
-                SizedBox(
-                  width: double.infinity,
-                  height: 300.h, 
-                  child: CachedNetworkImage(
-                    imageUrl: article.urlToImage ?? "",
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) =>
-                        Container(color: Colors.grey[200]),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
-                  ),
-                ),
+       
+            if (article.urlToImage != null) Image.network(article.urlToImage!),
 
-               
-                Expanded(
-                  child: Container(
-                    width: double.infinity,
-                  
-                    transform: Matrix4.translationValues(0.0, -20.0, 0.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(30.r),
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(30.r),
-                      ),
-                      child: SingleChildScrollView(
-                        padding: EdgeInsets.only(
-                          top: 30.h,
-                          left: 20.w,
-                          right: 20.w,
-                          bottom: 20.h,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              article.title ?? "",
-                              style: AppTextStyles.black18.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 16.h),
-                            Text(
-                              "${article.author ?? 'Unknown'} . ${article.publishedAt != null ? DateFormat("yyyy-MM-dd").format(article.publishedAt!) : ''}",
-                              style: AppTextStyles.gray12,
-                            ),
-                            SizedBox(height: 24.h),
-                            Text(
-                              article.content ?? "No content available.",
-                              style: AppTextStyles.black16.copyWith(
-                                height: 1.5,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    article.title ?? '',
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-              ],
-            ),
-
-            Positioned(
-              top: 20.h,
-              left: 20.w,
-              child: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.5),
-                child: IconButton(
-                  onPressed: () {
-                    GoRouter.of(
-                      context,
-                    ).pushReplacementNamed(AppRouter.homeScreen);
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    size: 20.sp,
-                    color: Colors.black,
+                  const SizedBox(height: 10),
+                  Text(
+                    'By ${article.author ?? "Unknown"} • ${article.publishedAt?.toLocal()}',
+                    style: const TextStyle(color: Colors.grey),
                   ),
-                ),
+                  const SizedBox(height: 20),
+                  Text(
+                    article.description ?? '',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    article.content ?? '',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
               ),
             ),
           ],

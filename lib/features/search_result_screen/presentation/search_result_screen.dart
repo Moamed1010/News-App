@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/routing/app_router.dart';
 import 'package:news_app/core/styles/app_text_styles.dart';
+import 'package:news_app/features/home_screen/domain/entity/news_entity.dart'; // استخدام الـ Entity
 import 'package:news_app/features/home_screen/presentation/widgets/custom_articale_card.dart';
-import 'package:news_app/features/search_result_screen/cubit/search_result_cubit.dart';
-import '../../core/models/news_model.dart';
-import '../../core/styles/app_color.dart';
-import '../../core/widgets/spacing_widget.dart';
+import 'package:news_app/features/search_result_screen/presentation/cubit/search_result_cubit.dart';
+
+import '../../../core/styles/app_color.dart';
+import '../../../core/widgets/spacing_widget.dart';
 
 class SearchResultScreen extends StatelessWidget {
   final String query;
@@ -24,11 +24,11 @@ class SearchResultScreen extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
-                if (context.locale.languageCode == "en") {
-                  context.setLocale(const Locale("ar"));
-                } else {
-                  context.setLocale(const Locale("en"));
-                }
+                context.setLocale(
+                  context.locale.languageCode == "en"
+                      ? const Locale("ar")
+                      : const Locale("en"),
+                );
               },
               icon: Icon(
                 Icons.language,
@@ -38,9 +38,7 @@ class SearchResultScreen extends StatelessWidget {
             ),
           ],
           leading: IconButton(
-            onPressed: () {
-              GoRouter.of(context).pushReplacementNamed(AppRouter.homeScreen);
-            },
+            onPressed: () => context.pop(), 
             icon: Icon(Icons.arrow_back_ios, color: Colors.black, size: 14.sp),
           ),
           centerTitle: true,
@@ -58,7 +56,9 @@ class SearchResultScreen extends StatelessWidget {
             } else if (state is ErrorSearchResult) {
               return Center(child: Text(state.error));
             } else if (state is SuccessSearchResult) {
-              NewsModel searchResult = state.model;
+           
+              final NewsEntity searchResult = state.newsEntity;
+
               if (searchResult.articles == null ||
                   searchResult.articles!.isEmpty) {
                 return Center(child: Text("No Result".tr()));
@@ -76,6 +76,7 @@ class SearchResultScreen extends StatelessWidget {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 10.h),
                             child: CustomArticleCard(
+                         
                               article: searchResult.articles![index],
                             ),
                           );
