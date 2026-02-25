@@ -88,10 +88,10 @@ lib/
 ## 📸 Application Preview
 
 <p align="center">
-  <img src="assets/screen_shots/home.png" width="220"/>
-  <img src="assets/screen_shots/search.png" width="220"/>
-  <img src="assets/screen_shots/details.png" width="220"/>
-  <img src="assets/screen_shots/Eazy Localization.png" width="220"/>
+  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/home.png" width="220"/>
+  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/search.png" width="220"/>
+  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/details.png" width="220"/>
+  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/easy_localization.png" width="220"/>
 </p>
 
 <p align="center">
