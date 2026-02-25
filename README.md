@@ -2,75 +2,58 @@
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter)
 ![Dart](https://img.shields.io/badge/Dart-3.x-blue?logo=dart)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey)
-![Architecture](https://img.shields.io/badge/Architecture-Feature%20Based-orange)
+![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-green)
+![State Management](https://img.shields.io/badge/State-Bloc%20%2F%20Cubit-purple)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-A scalable and production-oriented News Application built using Flutter.  
-This project demonstrates clean architecture principles, structured API integration, responsive UI design, and maintainable code organization suitable for real-world applications.
+A scalable and production-oriented News Application built using **Flutter**. This project demonstrates the implementation of **Clean Architecture** principles, separating the codebase into Domain, Data, and Presentation layers to ensure maintainability, testability, and scalability.
 
 ---
 
 ## 🚀 Project Overview
 
-News App is a cross-platform mobile application that allows users to:
+News App is a cross-platform mobile application that simulates a real-world production environment. It allows users to:
 
-- Browse Top Headlines
-- Filter News by Categories
-- Search Articles Dynamically
-- View Detailed News Content
-- Experience Responsive UI Across Devices
-- Switch Between Multiple Languages
-
-The project is structured to simulate a real production-ready mobile application.
+- **Browse Top Headlines:** Real-time news fetching from global sources.
+- **Dynamic Search:** Search for articles by keywords or specific topics.
+- **Multi-language Support:** Fully localized in **Arabic** and **English** (RTL/LTR support).
+- **Responsive UI:** Adaptive design that looks great on all screen sizes using `flutter_screenutil`.
+- **Clean Navigation:** Declarative routing using `go_router`.
 
 ---
 
-## 🏗 Architecture & Design
+## 📸 Application Preview
 
+<p align="center">
+  <img src="screenshotes/home.png" width="200" alt="Home Screen"/>
+  <img src="screenshotes/search.png" width="200" alt="Search Screen"/>
+  <img src="screenshotes/details.png" width="200" alt="Details Screen"/>
+  <img src="screenshotes/eazy_localization.png" width="200" alt="Localization"/>
+</p>
+
+<p align="center">
+  <b>Clean UI • Responsive Layout • RTL Support</b>
+</p>
+
+---
+
+## 🏗️ Architecture & Design
+
+The project strictly follows **Clean Architecture** divided into three independent layers:
+
+1.  **Domain Layer:** The inner core containing Entities, Use Cases, and Repository Interfaces. It has **zero dependencies** on other layers.
+2.  **Data Layer:** Handles data retrieval. It contains Models, Data Sources (Remote/Local), and Repository Implementations.
+3.  **Presentation Layer:** The UI layer containing Screens, Widgets, and State Management (Cubits).
+
+### Folder Structure
+```text
 lib/
-│
-├── core/
-│ ├── models/
-│ ├── services/
-│ ├── utils/
-│ └── shared_widgets/
-│
+├── core/                # Shared utilities, constants, networking, and DI setup
 ├── features/
-│ ├── home/
-│ ├── search/
-│ ├── details/
-│ └── ...
-│
-├── routing/
-│
-└── main.dart
-
-
-### Architectural Highlights
-
-- Centralized Routing Configuration  
-- Dedicated API Service Layer  
-- Modular & Reusable UI Components  
-- Clean Model Abstraction  
-- Organized Feature Separation  
-- Scalable Folder Hierarchy  
-
----
-
-## ✨ Core Features
-
-- 🔥 Real-Time News Fetching (REST API)
-- 📂 Category-Based Filtering
-- 🔍 Smart Search Functionality
-- 📰 Detailed Article View
-- 🌍 Multi-language Support (Localization)
-- 📱 Fully Responsive UI
-- ⚡ Optimized Network Calls
-- 🛡 Proper Error Handling & Loading States
-
----
-
+│   ├── home_screen/     # Home Feature (Data, Domain, Presentation)
+│   └── search_result/   # Search Feature (Data, Domain, Presentation)
+├── main.dart            # Entry point
+└── ...
 ## 🛠 Tech Stack
 
 | Technology | Role |
@@ -83,93 +66,61 @@ lib/
 | flutter_screenutil | Responsive Scaling |
 | HTTP / Dio | Network Requests |
 
----
-
-## 📸 Application Preview
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/home.png" width="220"/>
-  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/search.png" width="220"/>
-  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/details.png" width="220"/>
-  <img src="https://raw.githubusercontent.com/Moamed1010/News-App/main/assets/screenshots/easy_localization.png" width="220"/>
-</p>
-
-<p align="center">
-  Clean UI • Responsive Layout • Production-Oriented Design
-</p>
-
-The UI was designed with scalability and responsive behavior in mind, ensuring consistent performance across multiple screen sizes.
----
-
-## ⚙️ Installation & Setup
+⚙️ Installation & Setup
+Follow these steps to run the project locally:
 
 1️⃣ Clone Repository
 
-```bash
-git clone https://github.com/Moamed1010/News-App.git
+Bash
+git clone [https://github.com/Moamed1010/News-App.git](https://github.com/Moamed1010/News-App.git)
+2️⃣Navigate to Project Directory:
 
-2️⃣ Navigate to Project Directory
+Bash
 cd News-App
+3️⃣Install Dependencies:
 
-3️⃣ Install Dependencies
+Bash
 flutter pub get
+Configure API Key:
 
-4️⃣ Run Application
+4️⃣Sign up at NewsAPI.org to get your free API Key.
+
+Open lib/core/constants/constants.dart.
+
+Replace the placeholder with your key:
+
+Dart
+static const String apiKey = "YOUR_API_KEY_HERE";
+Run the Application:
+
+Bash
 flutter run
-Make sure Flutter SDK is properly installed and configured.
 
-
-🔑 API Configuration
-
-1-Obtain an API key from a news provider.
-
-2-Insert the key inside the API service file.
-
-3-Ensure internet permissions are enabled (Android & iOS).
-
-🚀 Performance & Code Quality
-
-Controlled Widget Rebuilds
-
-Structured API Handling
-
-Clean Separation Between UI & Logic
-
-Optimized Navigation Flow
-
-Readable & Maintainable Codebase
-
-🔮 Future Improvements
-
-State Management Integration (Bloc / Cubit / Riverpod)
-
-Dark Mode Support
-
-Offline Caching
-
-Pagination
-
-Unit & Widget Testing
-
-CI/CD Pipeline Integration
 
 🤝 Contributing
+Contributions are welcome! If you have any suggestions or improvements:
 
-Contributions are welcome.
+1-Fork the repository.
 
-Fork the repository
+2-Create a new branch (git checkout -b feature-branch).
 
-Create a new branch
+3-Commit your changes.
 
-Commit your changes
+4-Push to the branch.
 
-Open a Pull Request
+5-Open a Pull Request.
 
 👨‍💻 Developer
-
 Mohamed Nady Mahmoud Abdel Halim
+
 Flutter Developer
 
 Passionate about building scalable, maintainable, and production-ready mobile applications.
 
-⭐ If you found this project useful, consider giving it a star.
+<p align="left">
+<a href="https://www.google.com/search?q=https://github.com/Moamed1010" target="_blank">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/GitHub-100000%3Fstyle%3Dfor-the-badge%26logo%3Dgithub%26logoColor%3Dwhite" alt="GitHub"/>
+</a>
+</p>
+
+⭐ If you found this project useful, please consider giving it a star!
