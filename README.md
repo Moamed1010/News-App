@@ -99,7 +99,6 @@ lib/
 </p>
 
 The UI was designed with scalability and responsive behavior in mind, ensuring consistent performance across multiple screen sizes.
-
 ---
 
 ## ⚙️ Installation & Setup
