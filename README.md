@@ -23,18 +23,16 @@ News App is a cross-platform mobile application that simulates a real-world prod
 ---
 
 ## 📸 Application Preview
-
 <p align="center">
-  <img src="screenshotes/home.png" width="200" alt="Home Screen"/>
-  <img src="screenshotes/search.png" width="200" alt="Search Screen"/>
-  <img src="screenshotes/details.png" width="200" alt="Details Screen"/>
-  <img src="screenshotes/eazy_localization.png" width="200" alt="Localization"/>
+  <img src="https://drive.google.com/uc?export=view&id=1s3H4pB-KwlmTpDB4pdKW18d72OdcF8kA" height="400" alt="Home Screen"/>
+  <img src="https://drive.google.com/uc?export=view&id=1BSQ0gjm2tqdC5r3jZ3-Sgr1CWJUAZdti" height="400" alt="Search Screen"/>
+  <img src="https://drive.google.com/uc?export=view&id=1DsAGYqvkcs_a-Q5HqmtqSoVtdFN7w-be" height="400" alt="Details Screen"/>
+  <img src="https://drive.google.com/uc?export=view&id=10XyilIDJ_3NVLg5U3x8KFTb3IliZVRNx" height="400" alt="Localization"/>
 </p>
 
 <p align="center">
   <b>Clean UI • Responsive Layout • RTL Support</b>
 </p>
-
 ---
 
 ## 🏗️ Architecture & Design
