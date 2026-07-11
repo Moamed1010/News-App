@@ -57,17 +57,19 @@ lib/
 ├── main.dart            # Entry point
 └── ...
 
-### 🛠 Tech Stack
+## 🛠 Tech Stack
 
 | Technology | Role |
-|------------|------|
+| :--- | :--- |
 | **Flutter** | UI Framework |
 | **Dart** | Programming Language |
 | **REST API** | News Data Source |
 | **GoRouter** | Navigation Management |
 | **Easy Localization** | Multi-language Support |
-| **flutter_screenutil**| Responsive Scaling |
+| **flutter_screenutil** | Responsive Scaling |
 | **HTTP / Dio** | Network Requests |
+
+
 ⚙️ Installation & Setup
 Follow these steps to run the project locally:
 
