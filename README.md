@@ -115,7 +115,7 @@ Contributions are welcome! If you have any suggestions or improvements:
 5-Open a Pull Request.
 
 👨‍💻 Developer
-Mohamed Nady Mahmoud Abdel Halim
+Mohamed Hassan Ali 
 
 Flutter Developer
 
