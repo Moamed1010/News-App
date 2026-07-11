@@ -23,6 +23,9 @@ News App is a cross-platform mobile application that simulates a real-world prod
 ---
 
 ## 📸 Application Preview
+
+> **[🎬 Click here to watch the App Demo Video!](https://drive.google.com/file/d/1CXZ7YJSb60UroLTbeLohXQMCKbiya_ZI/view?usp=sharing)**
+
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=1s3H4pB-KwlmTpDB4pdKW18d72OdcF8kA" height="400" alt="Home Screen"/>
   <img src="https://drive.google.com/uc?export=view&id=1BSQ0gjm2tqdC5r3jZ3-Sgr1CWJUAZdti" height="400" alt="Search Screen"/>
@@ -33,6 +36,7 @@ News App is a cross-platform mobile application that simulates a real-world prod
 <p align="center">
   <b>Clean UI • Responsive Layout • RTL Support</b>
 </p>
+
 ---
 
 ## 🏗️ Architecture & Design
@@ -52,18 +56,18 @@ lib/
 │   └── search_result/   # Search Feature (Data, Domain, Presentation)
 ├── main.dart            # Entry point
 └── ...
-## 🛠 Tech Stack
+
+### 🛠 Tech Stack
 
 | Technology | Role |
 |------------|------|
-| Flutter | UI Framework |
-| Dart | Programming Language |
-| REST API | News Data Source |
-| GoRouter | Navigation Management |
-| Easy Localization | Multi-language Support |
-| flutter_screenutil | Responsive Scaling |
-| HTTP / Dio | Network Requests |
-
+| **Flutter** | UI Framework |
+| **Dart** | Programming Language |
+| **REST API** | News Data Source |
+| **GoRouter** | Navigation Management |
+| **Easy Localization** | Multi-language Support |
+| **flutter_screenutil**| Responsive Scaling |
+| **HTTP / Dio** | Network Requests |
 ⚙️ Installation & Setup
 Follow these steps to run the project locally:
 
